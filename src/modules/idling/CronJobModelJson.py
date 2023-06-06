@@ -38,6 +38,10 @@ def CronJobModelJson(
                             "spec": {
                                 "containers": [
                                     {
+                                        
+                                        "image": image,
+                                        "imagePullPolicy": "IfNotPresent",
+                                        "name": cronjobName,
                                         "env": [
                                             {
                                                 "name": "ACTION",
@@ -56,9 +60,6 @@ def CronJobModelJson(
                                                 "value": f"{replicas}"
                                             }
                                         ],
-                                        "image": image,
-                                        "imagePullPolicy": "IfNotPresent",
-                                        "name": cronjobName,
                                         "resources": {
                                             "limits": {
                                                 "cpu": "100m",
